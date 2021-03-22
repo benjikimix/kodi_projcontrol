@@ -2,11 +2,11 @@
 # Copyright (c) 2015,2018 Fredrik Eriksson <git@wb9.se>
 # This file is covered by the BSD-3-Clause license, read LICENSE for details.
 
-"""Module for communicating with Epson projectors supporting the ESC/VP21
-protocol over RS232 serial interface.
+"""Module for communicating with LG TV Sets like mine 32LD450 
+using protocol over RS232 serial interface.
 
-Protocol description fetched on 2015-06-26 from
-https://files.support.epson.com/pdf/pltw1_/pltw1_cm.pdf
+Protocol description fetched on 2021-03-22 from
+https://gscs-b2c.lge.com/downloadFile?fileId=LpoKs0dXatNxvCrLTFzng
 """
 
 import os
@@ -22,28 +22,18 @@ from lib.helpers import log
 # List of all valid models and their input sources
 # Remember to add new models to the settings.xml-file as well
 _valid_sources_ = {
-        "TW3200": {
-            "Component":            "10",
-            "Component - YCbCr":    "14",
-            "Component - YPbPr":    "15",
-            "Component - Auto":     "1F",
-            "PC":                   "20",
-            "HDMI1":                "30",
-            "HDMI2":                "A0",
-            "Video":                "40",
-            "RCA":                  "41",
-            "S-Video":              "42"
-            },
-        "PowerLite 820p": {
-            "Computer1/Analog RGB":             "11",
-            "Computer1/Digital RGB":            "12",
-            "Computer1/RGB-Video":              "13",
-            "Computer2/Component - Analog RGB": "21",
-            "Computer2/Component - RGB-Video":  "22",
-            "Computer2/Component - YCbCr":      "23",
-            "Computer2/Component - YPbPr":      "24",
-            "Video":                            "41",
-            "S-Video":                          "42",
+        "32LD450": {
+            "DTV (Antenna)":	"00",
+            "Analog (Antenna)":	"0A",
+            "Analog (Cable)":	"0B",
+            "AV1":				"14",
+            "AV2":				"15",
+            "Component":		"28",
+            "RGB-PC":			"3C",
+            "HDMI1":			"5A",
+            "HDMI2":			"5B",
+            "HDMI3":			"5C",
+            "HDMI4":			"5D"
             }
         }
 
