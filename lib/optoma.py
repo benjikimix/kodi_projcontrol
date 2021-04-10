@@ -62,29 +62,37 @@ _valid_sources_ = {
 # according to the response to the CMD_SRC_QUERY
 # Strangely the numbers are not the same for query and set
 # in the Optoma RS232 reference
-_read_sources_ = {
-    "0":    "No signal",
-    "1":    "DVI",
-    "2":    "VGA1",
-    "3":    "VGA2",
-    "4":    "S-Video",
-    "5":    "Video",
-    "6":    "BNC",
-    "7":    "HDMI1",
-    "8":    "HDMI2",
-    "9":    "HDMI3",
-    "10":   "Wireless",
-    "11":   "Component",
-    "12":   "Flash Drive",
-    "13":   "Network Display",
-    "14":   "USB Display",
-    "15":   "DisplayPort",
-    "16":   "HDBaseT",
-    "17":   "Multimedia",
-    "18":   "3D-SDI",
-    "19":   "Unknown",
-    "20":   "Smart TV"
-}
+_valid_sources_query_ = {
+        "Generic": {
+            "0":    "No signal",
+            "1":    "DVI",
+            "2":    "VGA1",
+            "3":    "VGA2",
+            "4":    "S-Video",
+            "5":    "Video",
+            "6":    "BNC",
+            "7":    "HDMI1",
+            "8":    "HDMI2",
+            "9":    "HDMI3",
+            "10":   "Wireless",
+            "11":   "Component",
+            "12":   "Flash Drive",
+            "13":   "Network Display",
+            "14":   "USB Display",
+            "15":   "DisplayPort",
+            "16":   "HDBaseT",
+            "17":   "Multimedia",
+            "18":   "3D-SDI",
+            "19":   "Unknown",
+            "20":   "Smart TV"
+            },
+        "EH470": {
+            "7":    "HDMI1",
+            "8":    "HDMI2",
+            "2":    "VGA",
+            "14":   "USB Display"
+            }
+        }
 
 # map the generic commands to ESC/VP21 commands
 _command_mapping_ = {
