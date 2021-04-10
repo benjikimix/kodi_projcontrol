@@ -21,7 +21,7 @@ msgstr ""
 
 msgctxt "#32001"
 msgid "Projector Details"
-msgstr "Paramètres Vidéoprojecteur"
+msgstr "Paramètres VP"
 
 msgctxt "#32002"
 msgid "Serial Device"
@@ -43,7 +43,7 @@ msgstr "Modèle"
 
 msgctxt "#32010"
 msgid "Projector Control"
-msgstr ""
+msgstr "Contrôle"
 
 msgctxt "#32011"
 msgid "Start projector when Kodi starts"
@@ -51,11 +51,11 @@ msgstr "Démarrer le VP au lancement de Kodi"
 
 msgctxt "#32012"
 msgid "Shutdown projector when Kodi exits"
-msgstr "Eteindre le VP à l'extinction de Kodi"
+msgstr "Éteindre le VP à l'extinction de Kodi"
 
 msgctxt "#32013"
 msgid "Shutdown projector when screensaver activates"
-msgstr "Eteindre le VP pendant l'économiseur d'écran"
+msgstr "Éteindre le VP pendant l'économiseur d'écran"
 
 msgctxt "#32014"
 msgid "Delay after screensaver activation before projector shutdown"
@@ -81,7 +81,7 @@ msgstr "Source d'entrée"
 
 msgctxt "#32020"
 msgid "Library Updates"
-msgstr "Mises à jour de la médiathèque"
+msgstr "Médiathèque"
 
 msgctxt "#32021"
 msgid "Update library when projector shuts down"
@@ -97,7 +97,7 @@ msgstr "Mettre à jour la médiathèque Vidéos"
 
 msgctxt "#32024"
 msgid "Regular updates"
-msgstr "Mises à jour régulières"
+msgstr "Mises à jour périodiques"
 
 msgctxt "#32025"
 msgid "Update every (Minutes)"
