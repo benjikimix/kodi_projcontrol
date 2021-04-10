@@ -14,6 +14,7 @@ import xbmcaddon
 import lib
 import lib.epson
 import lib.infocus
+import lib.optoma
 import lib.errors
 import lib.helpers
 
@@ -26,6 +27,8 @@ def _get_proj_module_():
         return lib.epson
     if manufacturer == "InFocus":
         return lib.infocus
+    if manufacturer == "Optoma":
+        return lib.infocus
     else:
         raise lib.errors.ConfigurationError("Manufacturer {} is not supported".format(manufacturer))
 
@@ -35,6 +38,8 @@ def _get_configured_model_():
         model = __addon__.getSetting("epson_model")
     elif manufacturer == "InFocus":
         model = __addon__.getSetting("infocus_model")
+    elif manufacturer == "Optoma":
+        model = __addon__.getSetting("optoma_model")
     else:
         raise lib.errors.ConfigurationError("Manufacturer {} is not supported".format(manufacturer))
     return model
