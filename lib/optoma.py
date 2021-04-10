@@ -197,8 +197,8 @@ class ProjectorInstance:
         # Read the command result
         ret = self._read_response()
         
-        # Write commands get either 'P' (Pass) or 'F' (Fail) response
-        # Read commands get either 'OKxxxx' (Pass, returned value = xxxx, variable length) of 'F' (Fail) response
+        # SET commands get either 'P' (Pass) or 'F' (Fail) response
+        # QUERY commands get either 'OKxxxx' (Pass, returned value = xxxx, variable length) of 'F' (Fail) response
         while not ret.startswith("OK") and ret != 'P' and ret != 'F':
             ret = self._read_response()
         
@@ -209,11 +209,11 @@ class ProjectorInstance:
         
         log("Command sent successfully")
         
-        # If write command passed
+        # If SET command passed
         if ret == "P":
             ret = True
         
-        # If read command passed
+        # If QUERY command passed
         elif ret.startswith("OK"):
             ret = ret[2:]
     
