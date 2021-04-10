@@ -152,15 +152,11 @@ class ProjectorInstance:
         The projector is ready when it answers OK0 or OK1 to a power state request.
         This is the only command that works even when the projector is powered off.
         """
-        self._send_command(_command_mapping_[lib.CMD_PWR_QUERY])
-        res = ""
-        while res is not None:
-            res = self._read_response()
-            if res.startswith("OK") :
-                return True
-            ## Not sure if resending the query is a good thing here
-            ## self._send_command(_command_mapping_[lib.CMD_PWR_QUERY])
-        return False
+        res = self._send_command(_command_mapping_[lib.CMD_PWR_QUERY])
+        if res is not None:
+            return True
+        else:
+            return False
 
     def _read_response(self):
         """Read response from projector"""
