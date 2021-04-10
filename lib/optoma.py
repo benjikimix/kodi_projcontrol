@@ -149,7 +149,7 @@ class ProjectorInstance:
 
     def _verify_connection(self):
         """Verify that the projecor is ready to receive commands.
-        The projector is ready when it answers OK0 or OK1 to a power state request.
+        The projector is ready when it answers Ok0 or Ok1 to a power state request.
         This is the only command that works even when the projector is powered off.
         """
         res = self._send_command(_command_mapping_[lib.CMD_PWR_QUERY])
@@ -204,14 +204,23 @@ class ProjectorInstance:
         log("_send_command() :: self.serial.write() with no error") # DEBUG
         
         # Read the command result
+
+        log("_send_command() :: Executing _read_response()...") # DEBUG
+
         ret = self._read_response()
         
         log("_send_command() :: ret='{}'".format(ret)) # DEBUG
         
         # SET commands get either 'P' (Pass) or 'F' (Fail) response
-        # QUERY commands get either 'OKxxxx' (Pass, returned value = xxxx, variable length) of 'F' (Fail) response
-        while not ret.startswith("OK") and ret != 'P' and ret != 'F':
-            ret = self._read_response()
+        # QUERY commands get either 'Okxxxx' (Pass, returned value = xxxx, variable length) of 'F' (Fail) response
+        if not ret.startswith("Ok") and ret != 'P' and ret != 'F':
+
+            log("_send_command() :: res does not yet have a valid format: {}".format(res)) # DEBUG
+
+            raise lib.errors.ProjectorError(
+                    "Error processing the response '{}' of the projector when sending command '{}' to projector.".format(ret, cmd_str)
+                    )
+            return ret
         
         log("_send_command() :: ret='{}'".format(ret)) # DEBUG
         
@@ -229,9 +238,9 @@ class ProjectorInstance:
             log("_send_command() :: Response was P. ret=True") # DEBUG
         
         # If QUERY command passed
-        elif ret.startswith("OK"):
+        elif ret.startswith("Ok"):
             
-            log("_send_command() :: Response was OK. Checking read value.") # DEBUG
+            log("_send_command() :: Response was Ok. Checking read value.") # DEBUG
         
             ret = ret[2:]
 
