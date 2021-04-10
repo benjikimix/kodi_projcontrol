@@ -28,7 +28,7 @@ def _get_proj_module_():
     if manufacturer == "InFocus":
         return lib.infocus
     if manufacturer == "Optoma":
-        return lib.infocus
+        return lib.optoma
     else:
         raise lib.errors.ConfigurationError("Manufacturer {} is not supported".format(manufacturer))
 
