@@ -230,7 +230,7 @@ class ProjectorInstance:
         if ret == "P":
             ret = True
         
-        log("_send_command() :: Response was P. ret=True") # DEBUG
+            log("_send_command() :: Response was P. ret=True") # DEBUG
         
         # If QUERY command passed
         elif ret.startswith("OK"):
