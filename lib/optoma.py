@@ -140,17 +140,18 @@ class ProjectorInstance:
 
 
     def _verify_connection(self):
-        """Verify that the projecor is ready to receive commands. The projector
-        is ready when it returns with a colon when sending carriage return to
-        it.
+        """Verify that the projecor is ready to receive commands.
+        The projector is ready when it answers OK0 or OK1 to a power state request.
+        This is the only command that works even when the projector is powered off.
         """
-        self._send_command("\r")
+        self._send_command(_command_mapping_[lib.CMD_PWR_QUERY])
         res = ""
         while res is not None:
             res = self._read_response()
-            if res.endswith(":") :
+            if res.startswith("OK") :
                 return True
-            self._send_command("\r")
+            ## Not sure if resending the query is a good thing here
+            ## self._send_command(_command_mapping_[lib.CMD_PWR_QUERY])
         return False
 
     def _read_response(self):
