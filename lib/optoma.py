@@ -224,7 +224,34 @@ class ProjectorInstance:
         # If QUERY command passed
         elif ret.startswith("OK"):
             ret = ret[2:]
-    
+
+            log("_send_command() :: Read value='{}'".format(ret)) # DEBUG
+        
+            # Check response for CMD_PWR_QUERY
+            if cmd_str == _command_mapping_[lib.CMD_PWR_QUERY]:
+                if ret == "1":
+                    ret = True
+            
+                    log("_send_command() :: Command was CMD_PWR_QUERY. ret=True") # DEBUG
+        
+                else:
+                    ret = False
+            
+                    log("_send_command() :: Command was CMD_PWR_QUERY. ret=False") # DEBUG
+        
+            # Check response for CMD_SRC_QUERY
+            elif cmd_str == _command_mapping_[lib.CMD_SRC_QUERY]:
+            
+                log("_send_command() :: Command was CMD_SRC_QUERY") # DEBUG
+        
+                if ret in [_valid_sources_query_[self.model][x] for x in _valid_sources_query_[self.model]]:
+                    ret = [x for x in _valid_sources_query_[self.model] if _valid_sources_query_[self.model][x] == ret][0]
+            
+                log("_send_command() :: Command was CMD_SRC_QUERY. ret='{}'".format(ret)) # DEBUG
+        
+
+        log("_send_command() :: End of function. Will return ret='{}'".format(ret)) # DEBUG
+        
         return ret
 
     def send_command(self, command, **kwargs):
