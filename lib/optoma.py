@@ -194,29 +194,30 @@ class ProjectorInstance:
                     )
             return ret
 
-        if cmd_str.endswith('?'):
-            ret = self._read_response()
-            while "=" not in ret and ret != 'ERR':
-                ret = self._read_response()
-            if ret == 'ERR':
-                log("Projector responded with Error!")
-                return None
-            log("Command sent successfully")
-            ret = ret.split('=', 1)[1]
-            if ret == "01":
-                ret = True
-            elif ret == "00":
-                ret = False
-            elif ret in [
-                    _valid_sources_[self.model][x] for x in
-                        _valid_sources_[self.model]
-                    ]:
-                ret = [
-                        x for x in 
-                        _valid_sources_[self.model] if
-                            _valid_sources_[self.model][x] == ret][0]
+        # Read the command result
+        ret = self._read_response()
         
-            return ret
+        # Write commands get either 'P' (Pass) or 'F' (Fail) response
+        # Read commands get either 'OKxxxx' (Pass, returned value = xxxx, variable length) of 'F' (Fail) response
+        while not ret.startswith("OK") and ret != 'P' and ret != 'F':
+            ret = self._read_response()
+        
+        # If command failed
+        if ret == 'F':
+            log("Projector responded with Error!")
+            return None
+        
+        log("Command sent successfully")
+        
+        # If write command passed
+        if ret == "P":
+            ret = True
+        
+        # If read command passed
+        elif ret.startswith("OK"):
+            ret = ret[2:]
+    
+        return ret
 
     def send_command(self, command, **kwargs):
         """Send command to the projector.
