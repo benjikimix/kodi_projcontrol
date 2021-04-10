@@ -14,13 +14,15 @@
     <summary lang="en_GB">Control your projector from Kodi</summary>
     <summary lang="sv_SE">Hantera din projektor med Kodi</summary>
     <summary lang="nb_NO">Styr prosjektøren din med Kodi</summary>
-      <summary lang="de_CH">Kontrolliere deinen Beamer mit Kodi</summary>
+    <summary lang="de_CH">Kontrolliere deinen Beamer mit Kodi</summary>
+    <summary lang="fr_FR">Contrôlez votre vidéoprojecteur depuis Kodi</summary>
     <description lang="en_GB">From Kodi, control a projector connected via a serial port. See https://github.com/fredrik-eriksson/kodi_projcontrol for supported projectors and features.</description>
     <description lang="sv_SE">Hantera en projektor ansluten via serieport, via Kodi. Se https://github.com/fredrik-eriksson/kodi_projcontrol (Endast på engelska) för vilka projektorer och funktioner som stöds.</description>
     <description lang="nb_NO">Styr en prosjektør som er koblet til Kodi via seriellport.  Se https://github.com/fredrik-eriksson/kodi_projcontrol (kun på engelsk) over oversikt over hvilke prosjektører og funksjoner som støttes.</description>
     <description lang="de_CH">Kontrolliere deinen mit einem seriellen Port verbundenen Beamer mit Kodi. Siehe unter https://github.com/fredrik-eriksson/kodi_projcontrol (nur in englisch) nach unterstützten Beamer und Funktionen.</description>
+    <description lang="fr_FR">Depuis Kodi, contrôlez un vidéoprojecteur connecté via un port série. Voir les modèles et fonctions supportés sur https://github.com/fredrik-eriksson/kodi_projcontrol.</description>
 
-    <news>v1.3.1 - 2021-04-??
+    <news>v1.3.1 - 2021-04-10
 - Add support for Optoma EH470 projector
     
 v1.3.0 - 2018-08-16
