@@ -158,7 +158,7 @@ class ProjectorInstance:
         """Read response from projector"""
         read = ""
         res = ""
-        while not read.endswith(":"):
+        while not read.endswith('\r'):
             r, w, x = select.select([self.serial.fileno()], [], [], self.timeout) 
             if len(r) == 0:
                 raise lib.errors.ProjectorError(
