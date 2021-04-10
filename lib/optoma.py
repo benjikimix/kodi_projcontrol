@@ -23,30 +23,68 @@ from lib.helpers import log
 # List of all valid models and their input sources
 # Remember to add new models to the settings.xml-file as well
 _valid_sources_ = {
-        "TW3200": {
-            "Component":            "10",
-            "Component - YCbCr":    "14",
-            "Component - YPbPr":    "15",
-            "Component - Auto":     "1F",
-            "PC":                   "20",
-            "HDMI1":                "30",
-            "HDMI2":                "A0",
-            "Video":                "40",
-            "RCA":                  "41",
-            "S-Video":              "42"
+        "Generic": {
+            "HDMI":             "1",
+            "HDMI1":            "1",
+            "HDMI/MHL":         "1",
+            "HDMI1/MHL":        "1",
+            "HDMI2":            "15",
+            "HDMI2/MHL":        "15",
+            "HDMI3":            "16",
+            "DVI-D":            "2",
+            "DVI-A":            "3",
+            "VGA":              "5",
+            "VGA1":             "5",
+            "VGA2":             "6",
+            "Component":        "14",
+            "S-Video":          "9",
+            "Video":            "10",
+            "DisplayPort":      "20",
+            "HDBaseT":          "21",
+            "BNC":              "4",
+            "Wireless":         "11",
+            "Flash Drive":      "17",
+            "Network Display":  "18",
+            "USB Display":      "19",
+            "Multimedia":       "23",
+            "3G-SDI":           "22",
+            "Smart TV":         "24"
             },
-        "PowerLite 820p": {
-            "Computer1/Analog RGB":             "11",
-            "Computer1/Digital RGB":            "12",
-            "Computer1/RGB-Video":              "13",
-            "Computer2/Component - Analog RGB": "21",
-            "Computer2/Component - RGB-Video":  "22",
-            "Computer2/Component - YCbCr":      "23",
-            "Computer2/Component - YPbPr":      "24",
-            "Video":                            "41",
-            "S-Video":                          "42",
+        "EH470": {
+            "HDMI1":            "1",
+            "HDMI2":            "15",
+            "VGA":              "5",
+            "USB Display":      "19"
             }
         }
+
+# List of all valid current input sources, but indexed
+# according to the response to the CMD_SRC_QUERY
+# Strangely the numbers are not the same for query and set
+# in the Optoma RS232 reference
+_read_sources_ = {
+    "0":    "No signal",
+    "1":    "DVI",
+    "2":    "VGA1",
+    "3":    "VGA2",
+    "4":    "S-Video",
+    "5":    "Video",
+    "6":    "BNC",
+    "7":    "HDMI1",
+    "8":    "HDMI2",
+    "9":    "HDMI3",
+    "10":   "Wireless",
+    "11":   "Component",
+    "12":   "Flash Drive",
+    "13":   "Network Display",
+    "14":   "USB Display",
+    "15":   "DisplayPort",
+    "16":   "HDBaseT",
+    "17":   "Multimedia",
+    "18":   "3D-SDI",
+    "19":   "Unknown",
+    "20":   "Smart TV"
+}
 
 # map the generic commands to ESC/VP21 commands
 _command_mapping_ = {
