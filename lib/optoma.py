@@ -87,6 +87,7 @@ _valid_sources_query_ = {
             "20":   "Smart TV"
             },
         "EH470": {
+            "0":    "No signal",
             "7":    "HDMI1",
             "8":    "HDMI2",
             "2":    "VGA",
@@ -261,12 +262,16 @@ class ProjectorInstance:
             # Check response for CMD_SRC_QUERY
             elif cmd_str == _command_mapping_[lib.CMD_SRC_QUERY]:
             
-                log("_send_command() :: Command was CMD_SRC_QUERY") # DEBUG
-        
-                if ret in [_valid_sources_query_[self.model][x] for x in _valid_sources_query_[self.model]]:
-                    ret = [x for x in _valid_sources_query_[self.model] if _valid_sources_query_[self.model][x] == ret][0]
-            
                 log("_send_command() :: Command was CMD_SRC_QUERY. ret='{}'".format(ret)) # DEBUG
+        
+                if ret in _valid_sources_query_[self.model]:
+                    ret = _valid_sources_query_[self.model][ret]
+
+                    log("_send_command() :: Command was CMD_SRC_QUERY. ret='{}' (human readable)".format(ret)) # DEBUG
+                
+                else:
+                    log("_send_command() :: Could not match ret='{}' to a valid input source".format(ret)) # DEBUG
+                
         
 
         log("_send_command() :: End of function. Will return ret='{}'".format(ret)) # DEBUG
