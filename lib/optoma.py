@@ -88,12 +88,12 @@ _read_sources_ = {
 
 # map the generic commands to ESC/VP21 commands
 _command_mapping_ = {
-        lib.CMD_PWR_ON: "~0000 1\r",
-        lib.CMD_PWR_OFF: "~0000 0\r",
-        lib.CMD_PWR_QUERY: "~00124 1\r",
+        lib.CMD_PWR_ON: "~0000 1",
+        lib.CMD_PWR_OFF: "~0000 0",
+        lib.CMD_PWR_QUERY: "~00124 1",
 
-        lib.CMD_SRC_QUERY: "~00121 1\r",
-        lib.CMD_SRC_SET: "~0012 {source_id}\r"
+        lib.CMD_SRC_QUERY: "~00121 1",
+        lib.CMD_SRC_SET: "~0012 {source_id}"
         }
 
 _serial_options_ = {
