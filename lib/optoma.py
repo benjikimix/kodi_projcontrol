@@ -2,11 +2,12 @@
 # Copyright (c) 2015,2018 Fredrik Eriksson <git@wb9.se>
 # This file is covered by the BSD-3-Clause license, read LICENSE for details.
 
-"""Module for communicating with Epson projectors supporting the ESC/VP21
-protocol over RS232 serial interface.
+# Added by benjikimix in April 2021
 
-Protocol description fetched on 2015-06-26 from
-https://files.support.epson.com/pdf/pltw1_/pltw1_cm.pdf
+"""Module for communicating with Optoma projectors over RS232 serial interface.
+
+Protocol description fetched on 2021-04-10 from
+https://www.optoma.fr/ContentStorage/Documents/286c27f6-93f7-4274-acf9-67b225f99e34.pdf
 """
 
 import os
