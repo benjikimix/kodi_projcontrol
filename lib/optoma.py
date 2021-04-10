@@ -122,9 +122,9 @@ def get_source_id(model, source):
 class ProjectorInstance:
     
     def __init__(self, model, ser, timeout=5):
-        """Class for managing Epson projectors
+        """Class for managing Optoma projectors
 
-        :param model: Epson model
+        :param model: Optoma model
         :param ser: open Serial port for the serial console
         :param timeout: time to wait for response from projector
         """
