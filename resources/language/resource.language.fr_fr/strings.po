@@ -1,0 +1,178 @@
+# Kodi Media Center language file
+# Addon Name: Projector Control
+# Addon id: service.projcontrol
+# Addon Provider: feffe
+msgid ""
+msgstr ""
+"Project-Id-Version: XBMC Addons\n"
+"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kodi Translation Team\n"
+"Language-Team: English (http://www.transifex.com/projects/p/xbmc-addons/language/en/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+
+# Configuration options 32001-32099
+
+msgctxt "#32001"
+msgid "Projector Details"
+msgstr "Paramètres Vidéoprojecteur"
+
+msgctxt "#32002"
+msgid "Serial Device"
+msgstr "Port série"
+
+msgctxt "#32003"
+msgid "Response Read Timeout"
+msgstr "Temps de réponse max"
+
+msgctxt "#32004"
+msgid "Manufacturer"
+msgstr "Fabricant"
+
+msgctxt "#32005"
+msgid "Model"
+msgstr "Modèle"
+
+# empty strings #32006-32009
+
+msgctxt "#32010"
+msgid "Projector Control"
+msgstr ""
+
+msgctxt "#32011"
+msgid "Start projector when Kodi starts"
+msgstr "Démarrer le VP au lancement de Kodi"
+
+msgctxt "#32012"
+msgid "Shutdown projector when Kodi exits"
+msgstr "Eteindre le VP à l'extinction de Kodi"
+
+msgctxt "#32013"
+msgid "Shutdown projector when screensaver activates"
+msgstr "Eteindre le VP pendant l'économiseur d'écran"
+
+msgctxt "#32014"
+msgid "Delay after screensaver activation before projector shutdown"
+msgstr "Délai d'extinction après activation de l'économiseur d'écran"
+
+msgctxt "#32015"
+msgid "Start projector when screensaver deactivates"
+msgstr "Démarrer le VP au retour de l'économiseur d'écran"
+
+msgctxt "#32016"
+msgid "Minimum interval between projector shutdown and startup"
+msgstr "Temps minimum entre extinction et allumage du VP"
+
+msgctxt "#32017"
+msgid "Set input source on projector after projector starts"
+msgstr "Régler la source d'entrée après allumage"
+
+msgctxt "#32018"
+msgid "Input source"
+msgstr "Source d'entrée"
+
+# empty string #32019
+
+msgctxt "#32020"
+msgid "Library Updates"
+msgstr "Mises à jour de la médiathèque"
+
+msgctxt "#32021"
+msgid "Update library when projector shuts down"
+msgstr "Mettre à jour la médiathèque à l'extinction du VP"
+
+msgctxt "#32022"
+msgid "Update Music Library"
+msgstr "Mettre à jour la médiathèque Musiques"
+
+msgctxt "#32023"
+msgid "Update Video Library"
+msgstr "Mettre à jour la médiathèque Vidéos"
+
+msgctxt "#32024"
+msgid "Regular updates"
+msgstr "Mises à jour régulières"
+
+msgctxt "#32025"
+msgid "Update every (Minutes)"
+msgstr "Mettre à jour toutes les (minutes)"
+
+# empty strings #32026-32029
+
+msgctxt "#32030"
+msgid "REST API"
+msgstr "API REST"
+
+msgctxt "#32031"
+msgid "Enable REST API"
+msgstr "Activer l'API REST"
+
+msgctxt "#32032"
+msgid "Listen Address"
+msgstr "Adresse IP d'écoute"
+
+msgctxt "#32033"
+msgid "Listen Port"
+msgstr "Port d'écoute"
+
+
+
+msgctxt "#32100"
+msgid "Projector Command Failed"
+msgstr "La commande VP a échoué"
+
+msgctxt "#32101"
+msgid "Report From Projector"
+msgstr "Message du VP"
+
+
+# Errors
+
+msgctxt "#32200"
+msgid "REST API not available, see https://github.com/fredrik-eriksson/kodi_projcontrol for possible reasons"
+msgstr "API REST non disponible, voir https://github.com/fredrik-eriksson/kodi_projcontrol pour les causes possibles"
+
+msgctxt "#32201"
+msgid "Failed to start API web server, Try to disable and reenable addon"
+msgstr "Impossible de lancer le serveur web API. Essayez de désactiver puis réactiver l'extension"
+
+msgctxt "#32202"
+msgid "Failed to start projector web server, Try to disable and reenable addon"
+msgstr "Impossible de démarrer le serveur web du VP. Essayer de désactiver puis réactiver l'extension"
+
+msgctxt "#32203"
+msgid "Configuration error: unsupported manufacturer"
+msgstr "Erreur de configuration : fabricant non supporté"
+
+msgctxt "#32204"
+msgid "Failed to open projector serial device"
+msgstr "Impossible d'ouvrir le port série"
+
+msgctxt "#32205"
+msgid "Failed to send command to projector"
+msgstr "Impossible d'envoyer une commande au VP"
+
+msgctxt "#32206"
+msgid "Error when sending command to projector"
+msgstr "Erreur lors de l'envoi d'une commande au VP"
+
+msgctxt "#32207"
+msgid "Configuration error: invalid source for this model"
+msgstr "Erreur de configuration : source invalide pour ce modèle"
+
+
+# Informational
+
+msgctxt "#32300"
+msgid "Started projector API at"
+msgstr "API du projecteur démarrée à"
+
+msgctxt "#32301"
+msgid "Projector API stopped"
+msgstr "API du projecteur stoppée"
