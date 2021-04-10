@@ -192,6 +192,9 @@ class ProjectorInstance:
 
         :param cmd_str: Full raw command string to send to the projector
         """
+
+        log("_send_command() :: cmd_str='{}'".format(cmd_str)) # DEBUG
+
         ret = None
         try:
             self.serial.write("{}\r".format(cmd_str))
@@ -202,13 +205,19 @@ class ProjectorInstance:
                     )
             return ret
 
+        log("_send_command() :: self.serial.write() with no error") # DEBUG
+        
         # Read the command result
         ret = self._read_response()
+        
+        log("_send_command() :: ret='{}'".format(ret)) # DEBUG
         
         # SET commands get either 'P' (Pass) or 'F' (Fail) response
         # QUERY commands get either 'OKxxxx' (Pass, returned value = xxxx, variable length) of 'F' (Fail) response
         while not ret.startswith("OK") and ret != 'P' and ret != 'F':
             ret = self._read_response()
+        
+        log("_send_command() :: ret='{}'".format(ret)) # DEBUG
         
         # If command failed
         if ret == 'F':
@@ -221,8 +230,13 @@ class ProjectorInstance:
         if ret == "P":
             ret = True
         
+        log("_send_command() :: Response was P. ret=True") # DEBUG
+        
         # If QUERY command passed
         elif ret.startswith("OK"):
+            
+            log("_send_command() :: Response was OK. Checking read value.") # DEBUG
+        
             ret = ret[2:]
 
             log("_send_command() :: Read value='{}'".format(ret)) # DEBUG
@@ -258,7 +272,7 @@ class ProjectorInstance:
         """Send command to the projector.
 
         :param command: A valid command from lib
-        :param **kwargs: Optional parameters to the command. For Epson the only
+        :param **kwargs: Optional parameters to the command. For Optoma the only
             valid keyword is "source_id" on CMD_SRC_SET.
 
         :return: True or False on CMD_PWR_QUERY, a source string on
