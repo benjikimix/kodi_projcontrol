@@ -190,8 +190,6 @@ class ProjectorInstance:
         :param cmd_str: Full raw command string to send to the projector
         """
 
-        log("_send_command() :: cmd_str='{}'".format(cmd_str)) # DEBUG
-
         ret = None
         try:
             self.serial.write("{}\r".format(cmd_str))
@@ -202,28 +200,17 @@ class ProjectorInstance:
                     )
             return ret
 
-        log("_send_command() :: self.serial.write() with no error") # DEBUG
-        
         # Read the command result
 
-        log("_send_command() :: Executing _read_response()...") # DEBUG
-
         ret = self._read_response()
-        
-        log("_send_command() :: ret='{}'".format(ret)) # DEBUG
         
         # SET commands get either 'P' (Pass) or 'F' (Fail) response
         # QUERY commands get either 'OKxxxx' (Pass, returned value = xxxx, variable length) of 'F' (Fail) response
         if not ret.upper().startswith("OK") and ret != 'P' and ret != 'F':
-
-            log("_send_command() :: ret does not yet have a valid format: {}".format(ret)) # DEBUG
-
             raise lib.errors.ProjectorError(
                     "Error processing the response '{}' of the projector when sending command '{}' to projector.".format(ret, cmd_str)
                     )
             return ret
-        
-        log("_send_command() :: ret='{}'".format(ret)) # DEBUG
         
         # If command failed
         if ret == 'F':
@@ -236,46 +223,22 @@ class ProjectorInstance:
         if ret == "P":
             ret = True
         
-            log("_send_command() :: Response was P. ret=True") # DEBUG
-        
         # If QUERY command passed
         elif ret.upper().startswith("OK"):
-            
-            log("_send_command() :: Response was OK. Checking read value.") # DEBUG
-        
             ret = ret[2:]
-
-            log("_send_command() :: Read value='{}'".format(ret)) # DEBUG
         
             # Check response for CMD_PWR_QUERY
             if cmd_str == _command_mapping_[lib.CMD_PWR_QUERY]:
                 if ret == "1":
                     ret = True
-            
-                    log("_send_command() :: Command was CMD_PWR_QUERY. ret=True") # DEBUG
-        
                 else:
                     ret = False
             
-                    log("_send_command() :: Command was CMD_PWR_QUERY. ret=False") # DEBUG
-        
             # Check response for CMD_SRC_QUERY
             elif cmd_str == _command_mapping_[lib.CMD_SRC_QUERY]:
-            
-                log("_send_command() :: Command was CMD_SRC_QUERY. ret='{}'".format(ret)) # DEBUG
-        
                 if ret in _valid_sources_query_[self.model]:
                     ret = _valid_sources_query_[self.model][ret]
 
-                    log("_send_command() :: Command was CMD_SRC_QUERY. ret='{}' (human readable)".format(ret)) # DEBUG
-                
-                else:
-                    log("_send_command() :: Could not match ret='{}' to a valid input source".format(ret)) # DEBUG
-                
-        
-
-        log("_send_command() :: End of function. Will return ret='{}'".format(ret)) # DEBUG
-        
         return ret
 
     def send_command(self, command, **kwargs):
